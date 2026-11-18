@@ -18,6 +18,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Compile backend Python modules
+        run: python -m py_compile app/backend/server.py app/backend/validation.py
       - name: Run standard-library validation tests
         env:
           PYTHONPATH: app/backend
